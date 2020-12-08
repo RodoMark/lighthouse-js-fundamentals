@@ -1,19 +1,19 @@
 "use strict";
 
 function range(start, end, step) {
-  let number = start;
   let array = [];
-  for (let i = start; i <= end; i++) {
-    array.push(number);
-    number += step;
-  }
-  if (step <= 0) {
+  if (start === undefined || end === undefined || step === undefined) {
     return [];
   } else if (start > end) {
     return [];
-  } else if (start === undefined || end === undefined || step === undefined) {
+  } else if (step <= 0) {
     return [];
   } else {
+    let n = start;
+    while (n <= end) {
+      array.push(n);
+      n += step;
+    }
     return array;
   }
 }
